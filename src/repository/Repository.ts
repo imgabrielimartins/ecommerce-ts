@@ -1,11 +1,6 @@
 import { Principal } from "../model/Principal";
 
 export interface Repository {
-
-    procurarProduto(numero: number): Principal | null;
-    listarProdutos(): Array<Principal>;
-    atualizar(produto: Principal): void;
+    procurarProduto(codigo: number): Principal | null;
     cadastrar(produto: Principal): void;
-    deletar(numero: number): boolean;
-
 }

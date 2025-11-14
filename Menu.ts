@@ -1,15 +1,12 @@
 import readlinesync = require("readline-sync");
 import { colors } from "./src/util/MenuColors";
-import { Principal } from "./src/model/Principal";
 import { Estendida } from "./src/model/Estendida";
-import { Repository as IRepository } from "./src/repository/Repository";
 import { Controller } from "./src/controller/Controller";
 
 export function main() {
 
     const controller = new Controller();
 
-    // Produtos cadastrados automaticamente
     controller.cadastrar(new Estendida("Bracelete de Ouro Corrente de Elos e Esferas", 964.50, 1, 101));
     controller.cadastrar(new Estendida("Brinco de Prata Pequeno Coração Vermelho", 324.50, 2, 102));
     controller.cadastrar(new Estendida("Brinco Argola Prata Fila de Corações Brilhantes", 1014.50, 3, 103));
@@ -20,7 +17,6 @@ export function main() {
 
     while (true) {
 
-        // MENU PRINCIPAL
         console.log(colors.bg.black, colors.fg.pink,
             "***********************************************************************************************");
         console.log("                                                                                               ");
@@ -50,7 +46,6 @@ export function main() {
         console.log("Escolha a opção desejada: ");
         opcao = readlinesync.questionInt("");
 
-        // SAIR
         if (opcao === 7) {
             console.log("\n Esperamos você novamente por aqui! ♥ ");
             sobreNos();
@@ -58,10 +53,6 @@ export function main() {
         }
 
         switch (opcao) {
-
-            // ======================================================================================
-            // PRODUTOS 1 A 5 — SUBMENU DE COMPRA
-            // ======================================================================================
             case 1:
             case 2:
             case 3:
@@ -116,15 +107,13 @@ export function main() {
                 break;
             }
 
-            // ======================================================================================
             case 6:
-                console.log("Entre em contato conosco");
-                console.log("WhatsApp - 51 98590-3563");
+                console.log("Entre em contato conosco                   ");
+                console.log("WhatsApp - 51 98590-3563                   ");
                 console.log("Email - suporte@gabrielimartinsjoias.com.br");
                 keyPress();
                 break;
 
-            // ======================================================================================
             default:
                 console.log("Opção inválida!");
                 keyPress();

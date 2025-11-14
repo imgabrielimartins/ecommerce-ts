@@ -1,28 +1,45 @@
 import { Principal } from "./Principal";
 
-export class Estendida extends Principal{
+export class Estendida extends Principal {
 
-    private _codigoProduto: number;
+    private id: number;  
+    private codigo: number;
 
-    constructor(nome: string, preco: number, tipo: number, codigoProduto: number) {
-        super(nome, preco, tipo);
-        this._codigoProduto = codigoProduto;
+    constructor(nome: string, preco: number, id: number, codigo: number) {
+        super(nome, preco);
+        this.id = id;
+        this.codigo = codigo;
     }
 
-    public get codigoProduto(){
-        return this._codigoProduto;
+    public getCodigo(): number {
+        return this.codigo;
     }
 
-    public set codigoProduto(codigoProduto: number){
-        this._codigoProduto = codigoProduto;
-    }
-
-   public override visualizarProdutos(): void {
+    public override visualizarProdutos(): void {
+        console.log(`Código: ${this.codigo}`);
+        console.log(`ID: ${this.id}`);
         super.visualizarProdutos();
-        console.log(`\n         --- Detalhes da Joia ---          `);
-        console.log(`  Código do Produto: ${this._codigoProduto}`  );
-        console.log(`  Nome do Produto: ${this.nome}`              );
-        console.log(`  Preço do Produto: ${this.preco}`            );
-        console.log(`---------------------------------------------`);
+    }
+
+    public comprar(valorPago: number, cupom?: string): void {
+
+        let precoFinal = this.getPreco();
+
+        if (cupom?.toUpperCase() === "DESCONTO10") {
+            precoFinal = precoFinal * 0.9;
+            console.log("\nCupom aplicado! 10% OFF");
+        }
+
+        console.log(`\nValor do produto: R$ ${precoFinal.toFixed(2)}`);
+        console.log(`Valor pago: R$ ${valorPago.toFixed(2)}`);
+
+        if (valorPago < precoFinal) {
+            console.log("\n⚠ Valor insuficiente!");
+            return;
+        }
+
+        const troco = valorPago - precoFinal;
+        console.log(`Troco: R$ ${troco.toFixed(2)}`);
+        console.log("\n✔ Compra realizada com sucesso!");
     }
 }
