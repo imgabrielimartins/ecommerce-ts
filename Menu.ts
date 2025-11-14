@@ -1,14 +1,13 @@
 import readlinesync = require("readline-sync");
 import { colors } from "./src/util/MenuColors";
 
-
 export function main(){
 
     let opcao: number;
 
      while(true){
         console.log(colors.bg.black, colors.fg.pink,
-            "***********************************************************************************************");
+                    "***********************************************************************************************");
         console.log("                                                                                               ");
         console.log("                                    Gabrieli Martins Joias                                     ");
         console.log("                                                                                               ");
@@ -45,33 +44,40 @@ export function main(){
         switch(opcao){
             case 1:
                 console.log("Comprar Bracelete");
-
+                
+            keyPress()
             break;
             case 2: 
                  console.log("Comprar Brinco");
             
+            keyPress()
             break;
             case 3: 
                  console.log("Comprar Brinco");
 
+            keyPress()
             break;
             case 4: 
                  console.log("Comprar Colar");
 
+            keyPress()
             break;
             case 5: 
                  console.log("Comprar Anel");
 
+            keyPress()
             break;
             case 6: 
                 console.log("Entre em contato conosco");
                 console.log("WhatsApp - 51 98590-3563");
                 console.log("Email - suporte@gabrielimartinsjoias.com.br");
 
+            keyPress()
             break;
             default:
                 console.log("Opção Inválida!");
 
+            keyPress()
             break;
         }
     }
@@ -84,5 +90,12 @@ export function sobreNos(): void{
     console.log("github.com/imgabrielimartins              ");
     console.log("******************************************");
 }
+
+function keyPress(): void {
+    console.log(colors.reset, "");
+    console.log("\nPressione enter para continuar...");
+    readlinesync.prompt();
+}
+
 
 main();
