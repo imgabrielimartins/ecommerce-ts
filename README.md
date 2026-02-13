@@ -18,24 +18,5 @@ Ele simula o catálogo e as operações básicas de uma loja de joias.
 * **Linguagem:** TypeScript
 * **Ambiente:** Node.js
 * **Dependências:** `readline-sync` (para input do usuário)
-
-## 💻 Como Rodar o Projeto
-
-1.  **Clone o Repositório:**
-    ```bash
-    git clone (https://github.com/imgabrielimartins/projeto_final_bloco_01)
-    cd projeto_final_bloco_01
-    ```
-
-2.  **Instale as Dependências:**
-    ```bash
-    npm install
-    ```
-
-3.  **Compile e Execute:**
-    ```bash
-    npm run start
-    ```
-
 ---
 **Desenvolvido por:** Gabrieli Martins
